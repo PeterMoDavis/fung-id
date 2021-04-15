@@ -2,7 +2,11 @@ const { Post } = require("../models");
 const router = require("express").Router();
 
 router.get("/", (req, res) => {
-  res.status(500).json(err);
+  try {
+    res.render("homepage");
+  } catch (err) {
+    res.status(500).json(err);
+  }
 });
 
 router.get("/mush-room", async (req, res) => {
