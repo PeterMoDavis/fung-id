@@ -21,18 +21,27 @@ Post.init(
             allowNull: false
         },
 
-        location: {
-            type: DataTypes.DECIMAL,
+        latitude: {
+            type: DataTypes.DECIMAL(10, 6),
             allowNull: false,
             validate: {
                 isDecimal: true,
             },
         },
 
-        weatether: {
+        longitude: {
+            type: DataTypes.DECIMAL(10, 6),
+            allowNull: false,
+            validate: {
+                isDecimal: true,
+            },
+        },
+
+        weather: {
             type: DataTypes.JSON,
             allowNull: false,
         },
+
         user_id: {
             type: DataTypes.INTEGER,
             references: {
