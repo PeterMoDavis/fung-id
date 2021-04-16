@@ -1,14 +1,18 @@
 <div class="container d-flex justify-content-center">
 
-    {{#each mushrooms as |mushroom|}}
-<div class="card" style="width: 18rem;">
-    <a href="/mush-room/{{mushroom.id}}">
-        <img src="https://images.unsplash.com/photo-1604857864317-b3f0bff0b9a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="...">
+    
+<div class="container d-flex m-3 flex-wrap justify-content-center">
+   {{#each mushrooms as |mushroom|}}
+      <a class="m-3 col-12 col-sm-6 col-md-4 col-lg-3" href="/mush-room/{{mushroom.id}}">
+        <img src="https://images.unsplash.com/photo-1604857864317-b3f0bff0b9a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" class="img-thumbnail img-fluid" alt="mushroom">
     </a>
-  
+      {{/each}}
 </div>
+  
+ 
+
     
     
-    {{/each}}
+    
 </div>
 

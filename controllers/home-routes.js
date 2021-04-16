@@ -28,7 +28,6 @@ router.get("/mush-room/:id", async (req, res) => {
       return;
     }
     const mushroom = postData.get({ plain: true });
-    console.log(mushroom);
     res.render("shroom", mushroom);
   } catch (err) {
     res.status(500).json(err);
