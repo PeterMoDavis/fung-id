@@ -1,7 +1,7 @@
 body {
+  background-color: #772f1a;
   background-image: linear-gradient(315deg, #772f1a 0%, #f2a65a 74%);
-  background-size: cover;
-  background-repeat: no-repeat;
+  height: 100%;
 }
 
 #brand-mushroom {
