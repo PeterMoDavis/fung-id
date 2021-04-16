@@ -12,17 +12,11 @@ router.get("/", (req, res) => {
 });
 
 router.get("/mush-room", async (req, res) => {
-  try {
-    const dbPostData = await Post.findAll({});
-    console.log(dbPostData);
-    const mushrooms = dbPostData.map((mushroom) => {
-      mushroom.get({ plain: true });
-    });
-    console.log(mushrooms);
-    res.render("mush-room", { mushrooms });
-  } catch (err) {
-    res.status(500).json(err);
-  }
+  const postData = await Post.findAll().catch((err) => {
+    res.json(err);
+  });
+  const mushrooms = postData.map((mushroom) => mushroom.get({ plain: true }));
+  res.render("mush-room", { mushrooms });
 });
 
 router.get("/login", (req, res) => {
