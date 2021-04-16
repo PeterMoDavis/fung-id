@@ -137,3 +137,8 @@ button:focus {
       margin-bottom: 50px !important
   }
 }
+
+
+#mapid { 
+  height: 180px;
+}

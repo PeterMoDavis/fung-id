@@ -1,14 +1,35 @@
 <div class="container d-flex justify-content-center">
 
-    {{#each mushrooms as |mushroom|}}
-<div class="card" style="width: 18rem;">
+  {{#each mushrooms as |mushroom|}}
+  <div class="card" style="width: 18rem;">
     <a href="/mush-room/{{mushroom.id}}">
-        <img src="https://images.unsplash.com/photo-1604857864317-b3f0bff0b9a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80" class="card-img-top" alt="...">
+      <img
+        src="https://images.unsplash.com/photo-1604857864317-b3f0bff0b9a0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=700&q=80"
+        class="card-img-top" alt="...">
     </a>
-  
-</div>
-    
-    
-    {{/each}}
+
+  </div>
+
+
+  {{/each}}
+
+
+
 </div>
 
+<div id="mapid"></div>
+<style>
+  var map=L.map('map').setView([51.505, -0.09], 13);
+
+  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
+      attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors,
+Imagery © < a href="https://www.mapbox.com/"> Mapbox</a> ',
+maxZoom: 18,
+      id: 'mapbox/streets-v11',
+      tileSize: 512,
+      zoomOffset: -1,
+      accessToken: pk.eyJ1IjoibWF0dHJ3YXJkMTAzMCIsImEiOiJja25raTJiM28wOXAzMnpveG4xdmF4Ymx5In0.4WC9PQzRBTPj5nM0C43i2w
+    }
+
+  ).addTo(mymap);
+</style>
