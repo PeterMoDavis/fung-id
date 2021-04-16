@@ -49,12 +49,12 @@ button:focus {
   -moz-box-shadow: none !important;
   -webkit-box-shadow: none !important;
   box-shadow: none !important;
-  outline-width: 0
+  outline-width: 0;
 }
 
 .card {
   border-radius: 0;
-  border: none
+  border: none;
 }
 
 .card1 {
