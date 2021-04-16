@@ -19,6 +19,22 @@ router.get("/mush-room", async (req, res) => {
   res.render("mush-room", { mushrooms });
 });
 
+router.get("/mush-room/:id", async (req, res) => {
+  try {
+    const postData = await Post.findByPk(req.params.id);
+    console.log(postData);
+    if (!postData) {
+      res.status(404).json({ message: "No mushroom with this id!" });
+      return;
+    }
+    const mushroom = postData.get({ plain: true });
+    console.log(mushroom);
+    res.render("shroom", mushroom);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
 router.get("/login", (req, res) => {
   // If the user is already logged in, redirect to the homepage
   if (req.session.loggedIn) {
