@@ -9,10 +9,6 @@ body {
   height: 70px;
 }
 
-html {
-  overflow: hidden;
-}
-
 body .cont {
   color: #000;
   height: 100%;
@@ -134,8 +130,6 @@ button:focus {
     margin-bottom: 50px !important;
   }
 }
-
-
 
 #map {
   height: 180px;
