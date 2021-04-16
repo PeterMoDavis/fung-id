@@ -67,26 +67,8 @@ button:focus {
   background-image: linear-gradient(to right, #FFD54F, #D500F9)
 }
 
-#logo {
-  width: 70px;
-  height: 60px
-}
-
 .heading {
   margin-bottom: 60px !important
-}
-
-::placeholder {
-  color: #000 !important;
-  opacity: 1
-}
-
-:-ms-input-placeholder {
-  color: #000 !important
-}
-
-::-ms-input-placeholder {
-  color: #000 !important
 }
 
 .form-control-label {
@@ -99,7 +81,7 @@ button:focus {
   margin-bottom: 30px
 }
 
-.btn-color {
+/* .btn-color {
   border-radius: 50px;
   color: #fff;
   background-image: linear-gradient(to right, #FFD54F, #D500F9);
@@ -107,34 +89,8 @@ button:focus {
   cursor: pointer;
   border: none !important;
   margin-top: 40px
-}
+} */
 
-.btn-color:hover {
-  color: #fff;
-  background-image: linear-gradient(to right, #D500F9, #FFD54F)
-}
-
-.btn-white {
-  border-radius: 50px;
-  color: #D500F9;
-  background-color: #fff;
-  padding: 8px 40px;
-  cursor: pointer;
-  border: 2px solid #D500F9 !important
-}
-
-.btn-white:hover {
-  color: #fff;
-  background-image: linear-gradient(to right, #FFD54F, #D500F9)
-}
-
-a {
-  color: #000
-}
-
-a:hover {
-  color: #000
-}
 
 .bottom {
   width: 100%;
@@ -143,6 +99,10 @@ a:hover {
 
 .sm-text {
   font-size: 15px
+}
+
+.cont {
+  text-align: center;
 }
 
 @media screen and (max-width: 992px) {
@@ -161,9 +121,7 @@ a:hover {
   }
 }
 
-.cont {
-  text-align: center;
-}
+
 
 @media screen and (max-width: 768px) {
   .container {
