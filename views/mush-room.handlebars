@@ -2,7 +2,7 @@
   <h1>Mush-room!</h1>
 </div>
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex flex-column align-items-center">
 
 
   <div class="container d-flex m-3 flex-wrap justify-content-center">
@@ -15,9 +15,25 @@
         class="img-thumbnail img-fluid" alt="mushroom">
     </a>
     {{/each}}
-  </div>
+  </div> 
+
+  <div class="  d-flex container justify-content-center">
+      <div  id="map"></div>
+  </div>   
+
+</div>
 
 
+<form class="container" action="">
+<div class="form-group">
+<label for="mushroom-name">Mushroom Name</label>
+    <input type="text" class="form-control" id="mushroom-name" placeholder="Mushroom Name">
+</div>
+<div class="form-group">
+<label for="description">Description</label>
+    <input type="text" class="form-control" id="description" placeholder="Description">
+</div>
+</form>
 
   <div class="input-group">
     <button type="button" class="btn btn-light" onClick="getEXIF()" ;>Upload</button>
@@ -25,6 +41,8 @@
   </div>
 
 
-</div>
 
-<div id="map"></div>
+
+
+
+
