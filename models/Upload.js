@@ -6,22 +6,22 @@ class Upload extends Model { }
 Upload.init(
     {
         id: {
-            type:DataTypes.INTEGER, 
-            allowNull: false, 
-            primaryKey: true, 
+            type: DataTypes.INTEGER,
+            allowNull: false,
+            primaryKey: true,
             autoIncrement: true
         },
         latitude: {
             type: DataTypes.DECIMAL(10, 6),
-            allowNull: true,           
+            allowNull: true,
         },
         longitude: {
             type: DataTypes.DECIMAL(10, 6),
-            allowNull: true,           
+            allowNull: true,
         },
         url: {
-            type: DataTypes.url, 
-            allowNull: false, 
+            type: DataTypes.STRING,
+            allowNull: false,
         },
     },
     {

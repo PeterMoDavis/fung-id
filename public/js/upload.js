@@ -9,7 +9,7 @@ function getEXIF() {
     try {
         let result = cloudinary.uploader.upload('./public/assets/images/IMG_5062.jpg', { type: "upload", image_metadata: true },
             function (error, result) {
-                
+
                 if (result) {
                     let latitude = result.image_metadata.GPSLatitude;
                     let longitude = result.image_metadata.GPSLongitude;
@@ -18,7 +18,7 @@ function getEXIF() {
                     let date_created = result.image_metadata.DigitalCreationDate;
 
                     let dateBits = date_created.split(/[^\d\w\.]+/);
-                    let showDate = (dateBits [1] + '/' + dateBits[2] + '/' + dateBits[0]);
+                    let showDate = (dateBits[1] + '/' + dateBits[2] + '/' + dateBits[0]);
 
                     let latBits = latitude.split(/[^\d\w\.]+/);
                     let lat = [latBits[0], latBits[2], latBits[3], latBits[4]];
@@ -75,3 +75,32 @@ function getEXIF() {
 //   const filename = document.querySelector('#fileName').value.trim();
 //              rough sketch of query to get the name of the file to be uploaded 
 
+// export the getEXIF function to be used in home-routes.js
+
+const imageDataHandler = async (event) => {
+    event.preventDefault();
+
+    const filename = document.querySelector('#fileName').value.trim();
+
+    if (filename) {
+        const response = await fetch('/upload', {
+            method: 'POST',
+            body: JSON.stringify({ filename }),
+            headers: { 'Content-Type': 'application/json' },
+        });
+
+        if (response.ok) {
+            document.location.replace('/');
+        } else {
+            alert('Upload failed.');
+        }
+    }
+};
+
+document
+    .querySelector('.input-group')
+    .addEventListener('file', imageDataHandler);
+
+
+
+module.exports = getEXIF;
