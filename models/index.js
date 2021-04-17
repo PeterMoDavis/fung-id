@@ -1,6 +1,6 @@
 const User = require('./User');
 const Post = require('./Post');
-
+const Upload = require('./Upload');
 
 User.hasMany(Post, {
     foreignKey: 'user_id',
@@ -13,5 +13,5 @@ Post.belongsTo(User, {
     onDelete: "CASCADE"
 });
 
-module.exports = { User, Post };
+module.exports = { User, Post, Upload };
 
