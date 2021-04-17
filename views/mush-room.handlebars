@@ -6,8 +6,8 @@
 
 
   <div class="container d-flex m-3 flex-wrap justify-content-center">
-    
-    
+
+
     {{#each mushrooms as |mushroom|}}
     <a class="m-3 col-12 col-sm-6 col-md-4 col-lg-3" href="/mush-room/{{mushroom.id}}">
       <img
@@ -19,24 +19,12 @@
 
 
 
-<div class="input-group">
- <button type="button" class="btn btn-light" onClick="getEXIF()";>Upload</button>
-  <input type="file" class="form-control" id="pickUpFile" >
-</div>
+  <div class="input-group">
+    <button type="button" class="btn btn-light" onClick="getEXIF()" ;>Upload</button>
+    <input type="file" class="form-control" id="pickUpFile">
+  </div>
 
 
 </div>
 
 <div id="map"></div>
-
-<script>
-  var map = L.map('map').setView([51.505, -0.09], 13);
-  L.tileLayer('https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}', {
-    attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
-    maxZoom: 18,
-    id: 'mapbox/streets-v9',
-    tileSize: 512,
-    zoomOffset: -1,
-    accessToken: "pk.eyJ1IjoibWF0dHJ3YXJkMTAzMCIsImEiOiJja25raTJiM28wOXAzMnpveG4xdmF4Ymx5In0.4WC9PQzRBTPj5nM0C43i2w"
-  }).addTo(map);
-</script>
