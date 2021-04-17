@@ -4,12 +4,10 @@ const router = require('../../controllers/home-routes');
 const { Post } = require('../../models');
 
 getEXIF();
-
+// pickFile = document.querySelector('#pickUpFile');
 function getEXIF() {
-    const pickFile = document.querySelector('#pickUpFile');
-
     try {
-        let result = cloudinary.uploader.upload(pickFile, { type: "upload", image_metadata: true },
+        let result = cloudinary.uploader.upload('./public/assets/images/IMG_5062.jpg', { type: "upload", image_metadata: true },
             function (error, result) {
                 
                 if (result) {
