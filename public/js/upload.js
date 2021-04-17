@@ -1,11 +1,15 @@
-const sequelize = require('../../config/connection');
 const cloudinary = require('../../config/cloudinary');
-const router = require('../../controllers/home-routes');
+// const sequelize = require('../../config/connection');
+// const router = require('../../controllers/home-routes');
 // const { Post } = require('../../models');
 
-// getEXIF();
-// pickFile = document.querySelector('#pickUpFile');
+getEXIF();
+
+
+document.querySelector('#pickUpFile').addEventListener("change", getEXIF());
+
 function getEXIF() {
+    console.log('function!');
     try {
         let result = cloudinary.uploader.upload('./public/assets/images/IMG_5062.jpg', { type: "upload", image_metadata: true },
             function (error, result) {
@@ -56,6 +60,7 @@ function getEXIF() {
         console.log(err);
     };
 };
+
 
 
 

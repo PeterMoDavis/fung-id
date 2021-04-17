@@ -1,6 +1,6 @@
 const { Post, Upload } = require("../models");
 const router = require("express").Router();
-const exif = require('../public/js/upload');
+// const exif = require('../public/js/upload');
 
 router.get("/", (req, res) => {
   try {
@@ -46,18 +46,18 @@ router.get("/login", (req, res) => {
 });
 
 
-router.post("/upload", async (req, res) => {
-  try {
-    const uploadData = await Upload.create({
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
-      url: req.body.secure_url
-    });
-    res.status(200).json(uploadData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
-});
+// router.post("/upload", async (req, res) => {
+//   try {
+//     const uploadData = await Upload.create({
+//       latitude: req.body.latitude,
+//       longitude: req.body.longitude,
+//       url: req.body.secure_url
+//     });
+//     res.status(200).json(uploadData);
+//   } catch (err) {
+//     res.status(400).json(err);
+//   }
+// });
 
 
 
