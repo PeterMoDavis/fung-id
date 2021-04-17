@@ -1,3 +1,4 @@
+
 const cloudinary = require('../../config/cloudinary');
 // const sequelize = require('../../config/connection');
 // const router = require('../../controllers/home-routes');
@@ -84,28 +85,28 @@ function getEXIF() {
 
 
 // const imageDataHandler = async (event) => {
-//     event.preventDefault();
+//   event.preventDefault();
 
-//     const filename = document.querySelector('#fileName').value.trim();
+//   const filename = document.querySelector("#fileName").value.trim();
 
-//     if (filename) {
-//         const response = await fetch('/upload', {
-//             method: 'POST',
-//             body: JSON.stringify({ filename }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
+//   if (filename) {
+//     const response = await fetch("/upload", {
+//       method: "POST",
+//       body: JSON.stringify({ filename }),
+//       headers: { "Content-Type": "application/json" },
+//     });
 
-//         if (response.ok) {
-//             document.location.replace('/');
-//         } else {
-//             alert('Upload failed.');
-//         }
+//     if (response.ok) {
+//       document.location.replace("/");
+//     } else {
+//       alert("Upload failed.");
 //     }
+//   }
 // };
 
 // document
-//     .querySelector('.input-group')
-//     .addEventListener('file', imageDataHandler);
+//   .querySelector(".input-group")
+//   .addEventListener("file", imageDataHandler);
 
 
 
