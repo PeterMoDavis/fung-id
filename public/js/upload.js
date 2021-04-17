@@ -82,6 +82,7 @@ function getEXIF() {
 
 // export the getEXIF function to be used in home-routes.js
 
+
 // const imageDataHandler = async (event) => {
 //     event.preventDefault();
 
@@ -105,6 +106,7 @@ function getEXIF() {
 // document
 //     .querySelector('.input-group')
 //     .addEventListener('file', imageDataHandler);
+
 
 
 
