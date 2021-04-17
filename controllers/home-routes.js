@@ -1,6 +1,6 @@
 const { Post, Upload } = require("../models");
 const router = require("express").Router();
-const exif = require('../public/js/upload');
+// const exif = require('../public/js/upload');
 
 router.get("/", (req, res) => {
   try {
