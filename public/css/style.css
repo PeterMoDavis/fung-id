@@ -147,10 +147,16 @@ button:focus {
 }
 
 #mushroomman {
+  position: absolute;
   width: 50%;
   margin-left: 100px;
-  margin-top: 400px;
+  margin-top: 500px;
   animation: jump 2s infinite;
+}
+
+.moss {
+  width: 100vh;
+  height: 100vh;
 }
 
 @keyframes jump {
