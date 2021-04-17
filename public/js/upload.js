@@ -1,9 +1,9 @@
 const sequelize = require('../../config/connection');
 const cloudinary = require('../../config/cloudinary');
 const router = require('../../controllers/home-routes');
-const { Post } = require('../../models');
+// const { Post } = require('../../models');
 
-getEXIF();
+// getEXIF();
 // pickFile = document.querySelector('#pickUpFile');
 function getEXIF() {
     try {
@@ -77,30 +77,30 @@ function getEXIF() {
 
 // export the getEXIF function to be used in home-routes.js
 
-const imageDataHandler = async (event) => {
-    event.preventDefault();
+// const imageDataHandler = async (event) => {
+//     event.preventDefault();
 
-    const filename = document.querySelector('#fileName').value.trim();
+//     const filename = document.querySelector('#fileName').value.trim();
 
-    if (filename) {
-        const response = await fetch('/upload', {
-            method: 'POST',
-            body: JSON.stringify({ filename }),
-            headers: { 'Content-Type': 'application/json' },
-        });
+//     if (filename) {
+//         const response = await fetch('/upload', {
+//             method: 'POST',
+//             body: JSON.stringify({ filename }),
+//             headers: { 'Content-Type': 'application/json' },
+//         });
 
-        if (response.ok) {
-            document.location.replace('/');
-        } else {
-            alert('Upload failed.');
-        }
-    }
-};
+//         if (response.ok) {
+//             document.location.replace('/');
+//         } else {
+//             alert('Upload failed.');
+//         }
+//     }
+// };
 
-document
-    .querySelector('.input-group')
-    .addEventListener('file', imageDataHandler);
+// document
+//     .querySelector('.input-group')
+//     .addEventListener('file', imageDataHandler);
 
 
 
-module.exports = getEXIF;
+// module.exports = getEXIF;
