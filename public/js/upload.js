@@ -1,9 +1,4 @@
 
-const cloudinary = require('../../config/cloudinary');
-// const sequelize = require('../../config/connection');
-// const router = require('../../controllers/home-routes');
-// const { Post } = require('../../models');
-
 getEXIF();
 
 
