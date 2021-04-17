@@ -152,11 +152,22 @@ button:focus {
   margin-left: 100px;
   margin-top: 500px;
   animation: jump 2s infinite;
+  z-index: 2;
 }
 
 .moss {
-  width: 100vh;
+  position: absolute;
+  width: 100vw;
   height: 100vh;
+  z-index: 1;
+}
+.grass {
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  height: 75vh;
+  bottom: -124px;
+  filter: blur(2px);
 }
 
 @keyframes jump {
