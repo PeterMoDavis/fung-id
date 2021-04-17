@@ -1,22 +1,79 @@
-
-
+const sequelize = require('../../config/connection');
 const cloudinary = require('../../config/cloudinary');
+const router = require('../../controllers/home-routes');
+const { Post } = require('../../models');
 
-try {
-    let result = cloudinary.uploader.upload('./public/assets/images/IMG_5062.jpg',{type: "upload", image_metadata:true}, 
-function(error,result) {
-    //   console.log("result", result);
-      if (result) {
-        console.log('url: ' + result.url);
-        console.log('secure_url:' + result.secure_url);
-        console.log('date created: ' + result.image_metadata.DateCreated);
-        console.log('latitude: ' + result.image_metadata.GPSLatitude);
-        console.log('longitude: ' + result.image_metadata.GPSLongitude);
-      }
-    });
-  } catch (err) {
-    console.log(err);
-  }
+getEXIF();
+
+function getEXIF() {
+    const pickFile = document.querySelector('#pickUpFile');
+
+    try {
+        let result = cloudinary.uploader.upload(pickFile, { type: "upload", image_metadata: true },
+            function (error, result) {
+                
+                if (result) {
+                    let latitude = result.image_metadata.GPSLatitude;
+                    let longitude = result.image_metadata.GPSLongitude;
+                    let url = result.url;
+                    let secure_url = result.url;
+                    let date_created = result.image_metadata.DigitalCreationDate;
+
+                    let dateBits = date_created.split(/[^\d\w\.]+/);
+                    let showDate = (dateBits [1] + '/' + dateBits[2] + '/' + dateBits[0]);
+
+                    let latBits = latitude.split(/[^\d\w\.]+/);
+                    let lat = [latBits[0], latBits[2], latBits[3], latBits[4]];
+
+                    let superLat1 = parseFloat(latBits[0]);
+                    let superLat2 = parseFloat(latBits[2] / 60);
+                    let superLat3 = parseFloat(latBits[3] / 3600);
+                    let superLat = (superLat1 + superLat2 + superLat3).toFixed(6);
+
+                    if (latBits[4] == "S") {
+                        latBits[0] = latBits[0] * -1
+                    };
+
+                    let longBits = longitude.split(/[^\d\w\.]+/);
+                    let long = [longBits[0], longBits[2], longBits[3], longBits[4]];
+
+                    let superLong1 = parseFloat(longBits[0]);
+                    let superLong2 = parseFloat(longBits[2] / 60);
+                    let superLong3 = parseFloat(longBits[3] / 3600);
+                    let superLong = (superLong1 + superLong2 + superLong3).toFixed(6);
+
+                    if (longBits[4] == "W") {
+                        superLong = superLong * -1;
+                    };
+
+                    console.log('date: ' + showDate);
+                    console.log('latitude: ' + superLat);
+                    console.log('longitude: ' + superLong);
+                    console.log('secure url: ' + secure_url);
+
+                    // console.log(result);
+                };
+            });
+    } catch (err) {
+        console.log(err);
+    };
+};
 
 
+
+
+
+//--------------------------------------------------------------------------------------//
+// router.post('/', (req, res) =>
+//     Post.create(req.body)
+//         .then((newPost) => {
+//             res.json(newPost);
+//         })
+//         .catch((err) => {
+//             res.json(err);
+//         })
+//     );
+//--------------------------------------------------------------------------------------//
+//   const filename = document.querySelector('#fileName').value.trim();
+//              rough sketch of query to get the name of the file to be uploaded 
 
