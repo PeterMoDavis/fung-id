@@ -1,59 +1,62 @@
 
-// getEXIF();
+getEXIF();
 
 
-// function getEXIF() {
-//     console.log('function!');
-//     try {
-//         let result = cloudinary.uploader.upload('./public/assets/images/IMG_5062.jpg', { type: "upload", image_metadata: true },
-//             function (error, result) {
+document.querySelector('#pickUpFile').addEventListener("change", getEXIF());
 
-//                 if (result) {
-//                     let latitude = result.image_metadata.GPSLatitude;
-//                     let longitude = result.image_metadata.GPSLongitude;
-//                     let url = result.url;
-//                     let secure_url = result.url;
-//                     let date_created = result.image_metadata.DigitalCreationDate;
+function getEXIF() {
+    console.log('function!');
+    try {
+        let result = cloudinary.uploader.upload('./public/assets/images/IMG_5062.jpg', { type: "upload", image_metadata: true },
+            function (error, result) {
 
-//                     let dateBits = date_created.split(/[^\d\w\.]+/);
-//                     let showDate = (dateBits[1] + '/' + dateBits[2] + '/' + dateBits[0]);
+                if (result) {
+                    let latitude = result.image_metadata.GPSLatitude;
+                    let longitude = result.image_metadata.GPSLongitude;
+                    let url = result.url;
+                    let secure_url = result.url;
+                    let date_created = result.image_metadata.DigitalCreationDate;
 
-//                     let latBits = latitude.split(/[^\d\w\.]+/);
-//                     let lat = [latBits[0], latBits[2], latBits[3], latBits[4]];
+                    let dateBits = date_created.split(/[^\d\w\.]+/);
+                    let showDate = (dateBits[1] + '/' + dateBits[2] + '/' + dateBits[0]);
 
-//                     let superLat1 = parseFloat(latBits[0]);
-//                     let superLat2 = parseFloat(latBits[2] / 60);
-//                     let superLat3 = parseFloat(latBits[3] / 3600);
-//                     let superLat = (superLat1 + superLat2 + superLat3).toFixed(6);
+                    let latBits = latitude.split(/[^\d\w\.]+/);
+                    let lat = [latBits[0], latBits[2], latBits[3], latBits[4]];
 
-//                     if (latBits[4] == "S") {
-//                         latBits[0] = latBits[0] * -1
-//                     };
+                    let superLat1 = parseFloat(latBits[0]);
+                    let superLat2 = parseFloat(latBits[2] / 60);
+                    let superLat3 = parseFloat(latBits[3] / 3600);
+                    let superLat = (superLat1 + superLat2 + superLat3).toFixed(6);
 
-//                     let longBits = longitude.split(/[^\d\w\.]+/);
-//                     let long = [longBits[0], longBits[2], longBits[3], longBits[4]];
+                    if (latBits[4] == "S") {
+                        latBits[0] = latBits[0] * -1
+                    };
 
-//                     let superLong1 = parseFloat(longBits[0]);
-//                     let superLong2 = parseFloat(longBits[2] / 60);
-//                     let superLong3 = parseFloat(longBits[3] / 3600);
-//                     let superLong = (superLong1 + superLong2 + superLong3).toFixed(6);
+                    let longBits = longitude.split(/[^\d\w\.]+/);
+                    let long = [longBits[0], longBits[2], longBits[3], longBits[4]];
 
-//                     if (longBits[4] == "W") {
-//                         superLong = superLong * -1;
-//                     };
+                    let superLong1 = parseFloat(longBits[0]);
+                    let superLong2 = parseFloat(longBits[2] / 60);
+                    let superLong3 = parseFloat(longBits[3] / 3600);
+                    let superLong = (superLong1 + superLong2 + superLong3).toFixed(6);
 
-//                     console.log('date: ' + showDate);
-//                     console.log('latitude: ' + superLat);
-//                     console.log('longitude: ' + superLong);
-//                     console.log('secure url: ' + secure_url);
+                    if (longBits[4] == "W") {
+                        superLong = superLong * -1;
+                    };
 
-//                     // console.log(result);
-//                 };
-//             });
-//     } catch (err) {
-//         console.log(err);
-//     };
-// };
+                    console.log('date: ' + showDate);
+                    console.log('latitude: ' + superLat);
+                    console.log('longitude: ' + superLong);
+                    console.log('secure url: ' + secure_url);
+
+                    // console.log(result);
+                };
+            });
+    } catch (err) {
+        console.log(err);
+    };
+};
+
 
 
 
@@ -78,28 +81,28 @@
 
 
 // const imageDataHandler = async (event) => {
-//     event.preventDefault();
+//   event.preventDefault();
 
-//     const filename = document.querySelector('#fileName').value.trim();
+//   const filename = document.querySelector("#fileName").value.trim();
 
-//     if (filename) {
-//         const response = await fetch('/upload', {
-//             method: 'POST',
-//             body: JSON.stringify({ filename }),
-//             headers: { 'Content-Type': 'application/json' },
-//         });
+//   if (filename) {
+//     const response = await fetch("/upload", {
+//       method: "POST",
+//       body: JSON.stringify({ filename }),
+//       headers: { "Content-Type": "application/json" },
+//     });
 
-//         if (response.ok) {
-//             document.location.replace('/');
-//         } else {
-//             alert('Upload failed.');
-//         }
+//     if (response.ok) {
+//       document.location.replace("/");
+//     } else {
+//       alert("Upload failed.");
 //     }
+//   }
 // };
 
 // document
-//     .querySelector('.input-group')
-//     .addEventListener('file', imageDataHandler);
+//   .querySelector(".input-group")
+//   .addEventListener("file", imageDataHandler);
 
 
 

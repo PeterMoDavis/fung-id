@@ -7,10 +7,12 @@ const SequelizeStore = require("connect-session-sequelize")(session.Store);
 
 const routes = require("./controllers");
 const sequelize = require("./config/connection");
+const cloudinary = require("./config/cloudinary");
 const helpers = require("./utils/helpers");
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
 
 // Sets up session and connect to our Sequelize db
 const sess = {
@@ -37,6 +39,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
+
+
 
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));

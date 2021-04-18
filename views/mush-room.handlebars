@@ -3,7 +3,7 @@
   <h1>Mush-room!</h1>
 </div>
 
-<div class="container d-flex justify-content-center">
+<div class="container d-flex flex-column align-items-center">
 
 
   <div class="container d-flex m-3 flex-wrap justify-content-center">
@@ -16,9 +16,26 @@
         class="img-thumbnail img-fluid" alt="mushroom">
     </a>
     {{/each}}
-  </div>
+  </div> 
+
+  <div class="  d-flex container justify-content-center">
+      <div  id="map"></div>
+  </div>   
+
+</div>
 
 
+<form class="container" action="">
+<div class="form-group">
+<label for="mushroom-name">Mushroom Name</label>
+    <input id="mushroom-name" type="text" class="form-control" id="mushroom-name" placeholder="Mushroom Name">
+</div>
+<div class="form-group">
+<label  for="description">Description</label>
+    <input id="description" type="text" class="form-control" id="description" placeholder="Description">
+</div>
+<button id="submit-button" class="btn btn-primary">Submit</button>
+</form>
 
  <button id="upload_widget" class="cloudinary-button">Upload files</button>
 
@@ -40,8 +57,4 @@ document.getElementById("upload_widget").addEventListener("click", function(){
 </script>
 
 
-</div>
 
-<div id="map"></div>
-
-<script type="text/javascript" src="/js/upload.js"></script>

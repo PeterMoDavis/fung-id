@@ -140,23 +140,34 @@ button:focus {
 #map {
   height: 150px;
   width: 20%;
-  position: fixed;
-  bottom: 0;
-  left: 50px;
+
+  /* bottom: 0; */
+  /* left: 50px; */
   border-radius: 30px;
 }
 
 #mushroomman {
   position: absolute;
-  width: 50%;
+  width: 40%;
   margin-left: 100px;
   margin-top: 500px;
   animation: jump 2s infinite;
+  z-index: 2;
 }
 
 .moss {
-  width: 100vh;
+  position: absolute;
+  width: 100vw;
   height: 100vh;
+  z-index: 1;
+}
+.grass {
+  position: absolute;
+  z-index: 3;
+  width: 100vw;
+  height: 75vh;
+  bottom: -124px;
+  filter: blur(2px);
 }
 
 @keyframes jump {
