@@ -1,25 +1,25 @@
 const submitButton = document.querySelector("#submit-button");
 const mushroomNameInput = document.querySelector("#mushroom-name");
 const descriptionInput = document.querySelector("#description");
+const mushroomForm = document.querySelector("#mushroom-form");
 
-submitButton.addEventListener("click", (e) => {
+const postFormHandler = async (e) => {
   e.preventDefault();
-
   const mushroomName = mushroomNameInput.value.trim();
   const description = descriptionInput.value.trim();
 
-  if(mushroomName && description){
-    const response = await fetch("/api/users/login", {
-      method: 'POST',
-      body: JSON.stringify({ email, password }),
-      headers: { 'Content-Type': 'application/json' },
-    })
+  if (mushroomName && description) {
+    const response = await fetch("/api/users/post", {
+      method: "POST",
+      body: JSON.stringify({ mushroomName, description }),
+      headers: { "Content-Type": "application/json" },
+    });
     if (response.ok) {
-      document.location.replace('/api/users/login');
-  } else {
-      alert('Failed to log in.');
+      document.location.replace("/");
+    } else {
+      alert("Failed to add mushroom.");
+    }
   }
-  }
-  alert(mushroomName);
-  alert(description);
-});
+};
+
+mushroomForm.addEventListener("submit", postFormHandler);
