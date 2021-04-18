@@ -127,7 +127,7 @@ showWidget = () => {
                 longitude: result.image_metadata.GPSLongitude,
                 url: result.url
             }
-            fetch('/upload', {
+            fetch('/api/users/upload', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
