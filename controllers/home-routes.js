@@ -46,18 +46,20 @@ router.get("/login", (req, res) => {
 });
 
 
-// router.post("/upload", async (req, res) => {
-//   try {
-//     const uploadData = await Upload.create({
-//       latitude: req.body.latitude,
-//       longitude: req.body.longitude,
-//       url: req.body.secure_url
-//     });
-//     res.status(200).json(uploadData);
-//   } catch (err) {
-//     res.status(400).json(err);
-//   }
-// });
+router.post("/upload", async (req, res) => {
+  console.log("POST UPLOAD", req.body)
+  try {
+    const uploadData = await Upload.create({
+      latitude: req.body.latitude,
+      longitude: req.body.longitude,
+      url: req.body.url
+    });
+    res.status(200).json(uploadData);
+    console.log(uploadData);
+  } catch (err) {
+    res.status(400).json(err);
+  }
+});
 
 
 
