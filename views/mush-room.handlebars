@@ -1,4 +1,5 @@
 
+<script src="/js/getObject.js"></script>
 <div class="container text-center mt-3">
   <h1>Mush-room!</h1>
 </div>
@@ -46,10 +47,12 @@ var myWidget = cloudinary.createUploadWidget({
   cloudName: 'fung-id', 
   uploadPreset: 'cdg9mwym'}, (error, result) => { 
     if (!error && result && result.event === "success") { 
-      console.log('Done! Here is the image info: ', result.info); 
-    }
-  }
-)
+      console.log('Done! I CONTROL THIS BIT OF TEXT: ', result);
+      let latitude = result.info.image_metadata.GPSLatitude;
+      console.log(latitude);
+    };
+    dataVerbs();
+  });
 
 document.getElementById("upload_widget").addEventListener("click", function(){
     myWidget.open();
@@ -58,3 +61,4 @@ document.getElementById("upload_widget").addEventListener("click", function(){
 
 
 
+<script src="/js/getObject.js"></script>
