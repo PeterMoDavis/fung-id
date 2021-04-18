@@ -13,7 +13,6 @@ const helpers = require("./utils/helpers");
 const app = express();
 const PORT = process.env.PORT || 3001;
 
-
 // Sets up session and connect to our Sequelize db
 const sess = {
   secret: "Super secret secret",
@@ -40,8 +39,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use(routes);
 
-
-
-sequelize.sync({ force: false }).then(() => {
+sequelize.sync({ force: true }).then(() => {
   app.listen(PORT, () => console.log("Now listening"));
 });
