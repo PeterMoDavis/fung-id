@@ -17,7 +17,7 @@ router.get("/mush-room", async (req, res) => {
     res.json(err);
   });
   const mushrooms = postData.map((mushroom) => mushroom.get({ plain: true }));
-  res.render("shroom", { mushrooms, loggedIn: req.session.loggedIn });
+  res.render("mush-room", { mushrooms, loggedIn: req.session.loggedIn });
 });
 
 router.get("/mush-room/:id", async (req, res) => {
