@@ -1,5 +1,5 @@
-const { Model, DataTypes } = require('sequelize');
-const sequelize = require('../config/connection');
+const { Model, DataTypes } = require("sequelize");
+const sequelize = require("../config/connection");
 
 class Upload extends Model { }
 
@@ -9,28 +9,27 @@ Upload.init(
             type: DataTypes.INTEGER,
             allowNull: false,
             primaryKey: true,
-            autoIncrement: true
+            autoIncrement: true,
         },
         latitude: {
-            type: DataTypes.STRING,
+            type: DataTypes.DECIMAL(10, 6),
             allowNull: true,
         },
         longitude: {
-            type: DataTypes.STRING,
+            type: DataTypes.DECIMAL(10, 6),
             allowNull: true,
         },
         url: {
             type: DataTypes.STRING,
-            allowNull: false,
+            allowNull: true,
         },
     },
     {
         sequelize,
         freezeTableName: true,
         underscored: true,
-        modelName: 'upload'
+        modelName: "upload",
     }
 );
 
 module.exports = Upload;
-

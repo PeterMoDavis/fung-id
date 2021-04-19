@@ -22,9 +22,7 @@
 //     .querySelector(".css-anf0i3")
 //     .addEventListener("submit", imageDataHandler);
 
-
 // getEXIF();
-
 
 // document.querySelector('#pickUpFile').addEventListener("change", getEXIF());
 
@@ -81,12 +79,6 @@
 //     };
 // };
 
-
-
-
-
-
-
 //--------------------------------------------------------------------------------------//
 // router.post('/', (req, res) =>
 //     Post.create(req.body)
@@ -99,15 +91,9 @@
 //     );
 //--------------------------------------------------------------------------------------//
 //   const filename = document.querySelector('#fileName').value.trim();
-//              rough sketch of query to get the name of the file to be uploaded 
+//              rough sketch of query to get the name of the file to be uploaded
 
 // export the getEXIF function to be used in home-routes.js
-
-
-
-
-
-
 
 // module.exports = getEXIF;
 
@@ -140,8 +126,31 @@ const showWidget = async (event) => {
         }
     );
     widget.open();
-};
+
+
+// showWidget = () => {
+//   let widget = window.cloudinary.createUploadWidget(
+//     {
+//       cloudName: "fung-id",
+//       uploadPreset: "cdg9mwym",
+//       sources: ["local", "camera"],
+//     },
+//     (error, result) => {
+//       console.log(result);
+//       const latitude = result.image_metadata.GPSLatitude;
+//       const longitude = result.image_metadata.GPSLongitude;
+//       const url = result.url;
+
+//       fetch("/users/upload", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({ latitude, longitude, url }),
+//       });
+//     }
+//   );
+//   widget.open();
+// };
 
 // showWidget()
-
-

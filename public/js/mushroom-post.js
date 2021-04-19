@@ -15,7 +15,7 @@ const postFormHandler = async (e) => {
       headers: { "Content-Type": "application/json" },
     });
     if (response.ok) {
-      document.location.replace("/");
+      document.location.replace("/mush-room");
     } else {
       alert("Failed to add mushroom.");
     }
@@ -23,3 +23,5 @@ const postFormHandler = async (e) => {
 };
 
 mushroomForm.addEventListener("submit", postFormHandler);
+
+("/api/users/upload");
