@@ -97,29 +97,60 @@
 
 // module.exports = getEXIF;
 
-showWidget = () => {
-  let widget = window.cloudinary.createUploadWidget(
-    {
-      cloudName: "fung-id",
-      uploadPreset: "cdg9mwym",
-      sources: ["local", "camera"],
-    },
-    (error, result) => {
-      console.log(result);
-      const latitude = result.image_metadata.GPSLatitude;
-      const longitude = result.image_metadata.GPSLongitude;
-      const url = result.url;
 
-      fetch("/users/upload", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+const showWidget = async (event) => {
+    let widget = window.cloudinary.createUploadWidget(
+        {
+            cloudName: 'fung-id',
+            uploadPreset: 'cdg9mwym',
+            sources: ["local", "camera"]
         },
-        body: JSON.stringify({ latitude, longitude, url }),
-      });
-    }
-  );
-  widget.open();
-};
+        (error, result) => {
+            if (widget) {
+
+                const latitude = result.image_metadata.GPSLatitude;
+                const longitude = result.image_metadata.GPSLongitude;
+                const url = result.url;
+
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: JSON.stringify({ latitude, longitude, url }),
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                if (response.ok) {
+                    document.location.replace('/mush-room');
+                } else {
+                    alert('Failed to upload image.');
+                }
+            }
+        }
+    );
+    widget.open();
+
+
+// showWidget = () => {
+//   let widget = window.cloudinary.createUploadWidget(
+//     {
+//       cloudName: "fung-id",
+//       uploadPreset: "cdg9mwym",
+//       sources: ["local", "camera"],
+//     },
+//     (error, result) => {
+//       console.log(result);
+//       const latitude = result.image_metadata.GPSLatitude;
+//       const longitude = result.image_metadata.GPSLongitude;
+//       const url = result.url;
+
+//       fetch("/users/upload", {
+//         method: "POST",
+//         headers: {
+//           "Content-Type": "application/json",
+//         },
+//         body: JSON.stringify({ latitude, longitude, url }),
+//       });
+//     }
+//   );
+//   widget.open();
+// };
 
 // showWidget()
