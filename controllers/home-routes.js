@@ -47,15 +47,14 @@ router.get("/login", (req, res) => {
 
 
 router.post("/upload", async (req, res) => {
-  console.log("POST UPLOAD", req.body)
   try {
     const uploadData = await Upload.create({
-      latitude: req.body.latitude,
-      longitude: req.body.longitude,
+      latitude: req.body.lat,
+      longitude: req.body.lon,
       url: req.body.url
     });
+    console.log("UPLOAD DATA: ", uploadData);
     res.status(200).json(uploadData);
-    console.log(uploadData);
   } catch (err) {
     res.status(400).json(err);
   }
