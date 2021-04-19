@@ -1,6 +1,6 @@
 const { Post, Upload } = require("../models");
 const router = require("express").Router();
-// const exif = require('../public/js/upload');
+const withAuth = require('../utils/auth');
 
 router.get("/", (req, res) => {
   try {
@@ -17,7 +17,7 @@ router.get("/mush-room", async (req, res) => {
     res.json(err);
   });
   const mushrooms = postData.map((mushroom) => mushroom.get({ plain: true }));
-  res.render("mush-room", { mushrooms });
+  res.render("shroom", { mushrooms, loggedIn: req.session.loggedIn });
 });
 
 router.get("/mush-room/:id", async (req, res) => {
@@ -29,7 +29,7 @@ router.get("/mush-room/:id", async (req, res) => {
       return;
     }
     const mushroom = postData.get({ plain: true });
-    res.render("shroom", mushroom);
+    res.render("shroom", { mushroom, loggedIn: req.session.loggedIn });
   } catch (err) {
     res.status(500).json(err);
   }
