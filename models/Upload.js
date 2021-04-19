@@ -12,11 +12,11 @@ Upload.init(
             autoIncrement: true
         },
         latitude: {
-            type: DataTypes.DECIMAL(10, 6),
+            type: DataTypes.STRING,
             allowNull: true,
         },
         longitude: {
-            type: DataTypes.DECIMAL(10, 6),
+            type: DataTypes.STRING,
             allowNull: true,
         },
         url: {

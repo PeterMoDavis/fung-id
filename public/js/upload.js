@@ -112,7 +112,7 @@
 // module.exports = getEXIF;
 
 
-showWidget = () => {
+const showWidget = async (event) => {
     let widget = window.cloudinary.createUploadWidget(
         {
             cloudName: 'fung-id',
@@ -120,22 +120,24 @@ showWidget = () => {
             sources: ["local", "camera"]
         },
         (error, result) => {
+            if (widget) {
 
+                const latitude = result.image_metadata.GPSLatitude;
+                const longitude = result.image_metadata.GPSLongitude;
+                const url = result.url;
 
-            var newUpload = {
-                latitude: result.image_metadata.GPSLatitude,
-                longitude: result.image_metadata.GPSLongitude,
-                url: result.url
+                const response = await fetch('/upload', {
+                    method: 'POST',
+                    body: JSON.stringify({ latitude, longitude, url }),
+                    headers: { 'Content-Type': 'application/json' },
+                });
+                if (response.ok) {
+                    document.location.replace('/mush-room');
+                } else {
+                    alert('Failed to upload image.');
+                }
             }
-            fetch('/api/users/upload', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(newUpload),
-            });
         }
-
     );
     widget.open();
 };
